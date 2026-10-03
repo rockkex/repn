@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* REPN institutional palette — deep navy + association gold */
+  --color-navy-50: #eef2f8;
+  --color-navy-100: #d9e2f0;
+  --color-navy-200: #b3c4de;
+  --color-navy-300: #8aa1c4;
+  --color-navy-400: #5f7aa6;
+  --color-navy-500: #3d5c8a;
+  --color-navy-600: #2c4a75;
+  --color-navy-700: #22395e;
+  --color-navy-800: #1a2d4b;
+  --color-navy-900: #152642;
+  --color-navy-950: #0d1a30;
+  --color-steel-500: #33475f;
+  --color-steel-600: #2a3b50;
+
+  --color-gold-50: #fbf7ec;
+  --color-gold-100: #f5ebd0;
+  --color-gold-200: #ead5a0;
+  --color-gold-300: #dfbd70;
+  --color-gold-400: #d4af5a;
+  --color-gold-500: #c19a3d;
+  --color-gold-600: #a8842c;
+  --color-gold-700: #866822;
+  --color-gold-800: #6b531c;
+  --color-gold-900: #544018;
+
+  /* Typography — institutional condensed headings + readable body */
+  --font-heading: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --font-body: "Source Sans 3", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-mono: ui-monospace, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* Boxy institutional radius — the .org look, not rounded SaaS */
+  --radius: 0.25rem;
+  --background: #ffffff;
+  --foreground: #1a2433;
+  --card: #ffffff;
+  --card-foreground: #1a2433;
+  --popover: #ffffff;
+  --popover-foreground: #1a2433;
+  --primary: #152642;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2f8;
+  --secondary-foreground: #152642;
+  --muted: #f3f5f9;
+  --muted-foreground: #5b6b80;
+  --accent: #eef2f8;
+  --accent-foreground: #152642;
+  --destructive: #b3372e;
+  --border: #dbe1ea;
+  --input: #c9d2df;
+  --ring: #c19a3d;
+  --chart-1: #c19a3d;
+  --chart-2: #2c4a75;
+  --chart-3: #33475f;
+  --chart-4: #d4af5a;
+  --chart-5: #5f7aa6;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a2433;
+  --sidebar-primary: #152642;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2f8;
+  --sidebar-accent-foreground: #152642;
+  --sidebar-border: #dbe1ea;
+  --sidebar-ring: #c19a3d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: #c19a3d;
+    color: #fff;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  /* Centered fixed-width container — the classic association band layout */
+  .container-repn {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1200px;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-repn {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  /* Uppercase condensed institutional heading */
+  .heading-caps {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1.08;
+    font-weight: 700;
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    font-size: 0.8125rem;
+  }
+
+  /* Diagonal accent edge for CTA bands (AHC-style angled section) */
+  .clip-angle-left {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 4.5% 100%);
+  }
+  .clip-angle-right {
+    clip-path: polygon(0 0, 95.5% 0, 100% 100%, 0 100%);
+  }
+
+  /* Double-rule gold divider used under section headings */
+  .rule-gold {
+    display: inline-block;
+    width: 64px;
+    height: 4px;
+    background: var(--color-gold-500);
+  }
+
+  .scroll-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scroll-thin::-webkit-scrollbar-thumb {
+    background: #b3c4de;
+    border-radius: 4px;
+  }
+  .scroll-thin::-webkit-scrollbar-track {
+    background: #eef2f8;
+  }
+}
