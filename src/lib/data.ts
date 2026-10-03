@@ -130,7 +130,10 @@ export const TIER_PLAN: Record<Tier, TierPlan> = {
 
 export const TIER_ORDER: Tier[] = ["basic", "professional", "premium"];
 
-export const COMPARISON_ROWS: { label: string; values: [boolean, boolean, boolean] }[] = [
+export const COMPARISON_ROWS: {
+  label: string;
+  values: [boolean | string, boolean | string, boolean | string];
+}[] = [
   { label: "Member directory listing", values: [true, true, true] },
   { label: "Monthly REPN Insider newsletter", values: [true, true, true] },
   { label: "Member pricing on events", values: [true, true, true] },

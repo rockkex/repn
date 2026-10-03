@@ -156,11 +156,21 @@ export function JoinView() {
                   </p>
                   <div className="mt-7 grid gap-6 md:grid-cols-3 items-start">
                     {TIER_ORDER.map((t) => (
-                      <button
+                      <div
                         key={t}
+                        role="button"
+                        tabIndex={0}
+                        aria-pressed={tier === t}
+                        aria-label={`Select ${TIER_PLAN[t].name} tier`}
                         onClick={() => setTier(t)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            setTier(t);
+                          }
+                        }}
                         className={cn(
-                          "text-left transition-all rounded-sm",
+                          "text-left transition-all rounded-sm cursor-pointer focus-visible:outline-2 focus-visible:outline-gold-600",
                           tier === t
                             ? "ring-4 ring-gold-500/50 rounded-sm"
                             : "opacity-90 hover:opacity-100"
@@ -174,7 +184,7 @@ export function JoinView() {
                           )}
                         </div>
                         <TierCard tier={t} compact onJoin={setTier} />
-                      </button>
+                      </div>
                     ))}
                   </div>
                   <div className="mt-8 flex justify-end">

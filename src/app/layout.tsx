@@ -34,7 +34,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className="antialiased bg-background text-foreground">
+      {/* suppressHydrationWarning: browser extensions (e.g. Grammarly) inject
+          attributes like data-new-gr-c-s-check-loaded onto <body> before React
+          hydrates, which would otherwise trigger a false hydration mismatch. */}
+      <body
+        className="antialiased bg-background text-foreground"
+        suppressHydrationWarning
+      >
         {children}
         <Toaster position="top-right" richColors />
       </body>
