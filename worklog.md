@@ -65,3 +65,19 @@ Stage Summary:
 - All 4 reported issues fixed plus 2 latent bugs (deep-link hydration mismatch, gender-mismatched avatars).
 - New assets: 3 news images + 9 diverse women avatars + 2 male headshots; scripts persisted in /scripts.
 - next.config.ts now allows query strings on local images for future cache-busting.
+
+---
+Task ID: 4
+Agent: Super Z (main agent)
+Task: Push project to user's GitHub repo (rockkex/repn) for Vercel deployment.
+
+Work Log:
+- Verified Task 3 fixes all committed; working tree clean on branch main (6 commits).
+- Confirmed remote repo github.com/rockkex/repn exists, is public, and is empty (ls-remote exit 0, no refs).
+- Found .env tracked despite .gitignore .env* rule; untracked it (git rm --cached) and committed. Content was only a dummy SQLite path, no secrets.
+- Added remote origin https://github.com/rockkex/repn.git.
+- Push attempt without credentials fails as expected: no gh CLI, no stored credentials, no token in env. Waiting for user to supply a GitHub Personal Access Token (repo scope / Contents read-write) to complete the push.
+
+Stage Summary:
+- Repo push-ready: main branch, clean tree, .env untracked, remote configured.
+- Blocked only on user-provided GitHub PAT for authentication.
