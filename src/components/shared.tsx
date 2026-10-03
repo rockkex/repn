@@ -197,13 +197,13 @@ export function MemberCard({ member }: { member: Member }) {
 
   return (
     <div className="group flex flex-col border border-border bg-white hover:shadow-md hover:border-navy-200 transition-all">
-      <div className="relative h-52 overflow-hidden bg-navy-100">
+      <div className="relative aspect-[4/3] overflow-hidden bg-navy-100">
         <Image
           src={member.avatar}
           alt={`Portrait of ${member.name}`}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          className="object-cover object-[center_30%] transition-transform duration-500 group-hover:scale-105"
         />
         <Badge
           className={cn(

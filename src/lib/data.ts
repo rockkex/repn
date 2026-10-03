@@ -162,18 +162,18 @@ export const SPECIALTIES = [
 ];
 
 export const MEMBERS: Member[] = [
-  { id: "m-001", name: "Sarah Mitchell", title: "Managing Broker", brokerage: "Summit Realty Group", specialty: "Residential", city: "Austin", state: "TX", tier: "professional", avatar: "/images/avatar-w3.jpg", email: "s.mitchell@summitrealty.com", phone: "(512) 555-0148", years: 14 },
-  { id: "m-002", name: "James Okafor", title: "Commercial Advisor", brokerage: "Metro Commercial Partners", specialty: "Commercial", city: "Chicago", state: "IL", tier: "premium", avatar: "/images/avatar-m4.jpg", email: "j.okafor@metropic.com", phone: "(312) 555-0192", years: 22 },
-  { id: "m-003", name: "Elena Vasquez", title: "Luxury Listing Specialist", brokerage: "Premier Estates International", specialty: "Luxury", city: "Beverly Hills", state: "CA", tier: "premium", avatar: "/images/avatar-w6.jpg", email: "elena@premiervasquez.com", phone: "(310) 555-0177", years: 17 },
-  { id: "m-004", name: "David Chen", title: "Senior Mortgage Planner", brokerage: "Golden Gate Lending", specialty: "Mortgage Lending", city: "San Francisco", state: "CA", tier: "professional", avatar: "/images/avatar-m2.jpg", email: "dchen@gglending.com", phone: "(415) 555-0136", years: 11 },
-  { id: "m-005", name: "Rachel Thompson", title: "Portfolio Manager", brokerage: "Keystone Property Group", specialty: "Property Management", city: "Denver", state: "CO", tier: "basic", avatar: "/images/avatar-w5.jpg", email: "rthompson@keystonepg.com", phone: "(303) 555-0159", years: 8 },
-  { id: "m-006", name: "Marcus Williams", title: "Investment Advisor", brokerage: "Williams Capital Realty", specialty: "Investment", city: "Atlanta", state: "GA", tier: "professional", avatar: "/images/avatar-m7.jpg", email: "marcus@williamscapital.net", phone: "(404) 555-0183", years: 15 },
-  { id: "m-007", name: "Jennifer Park", title: "Escrow Officer", brokerage: "Pacific Title Company", specialty: "Title & Escrow", city: "Seattle", state: "WA", tier: "professional", avatar: "/images/avatar-w8.jpg", email: "jpark@pacifictitle.com", phone: "(206) 555-0121", years: 12 },
-  { id: "m-008", name: "Robert Martinez", title: "Broker-Associate", brokerage: "Bayside Realty Advisors", specialty: "Residential", city: "Miami", state: "FL", tier: "premium", avatar: "/images/avatar-m1.jpg", email: "robert@baysideadvisors.com", phone: "(305) 555-0164", years: 25 },
-  { id: "m-009", name: "Amanda Foster", title: "Certified Appraiser", brokerage: "Foster Valuation Services", specialty: "Appraisal", city: "Nashville", state: "TN", tier: "basic", avatar: "/images/avatar-w2.jpg", email: "amanda@fostervaluation.com", phone: "(615) 555-0110", years: 9 },
-  { id: "m-010", name: "Kevin O'Brien", title: "New Home Sales Director", brokerage: "Lennar Homes Division", specialty: "New Construction", city: "Phoenix", state: "AZ", tier: "professional", avatar: "/images/avatar-m5.jpg", email: "k.obrien@lennardiv.com", phone: "(602) 555-0145", years: 13 },
-  { id: "m-011", name: "Nicole Grant", title: "Broker / Owner", brokerage: "Grant & Associates Realty", specialty: "Residential", city: "Charlotte", state: "NC", tier: "premium", avatar: "/images/avatar-w1.jpg", email: "nicole@grantrealty.com", phone: "(704) 555-0172", years: 19 },
-  { id: "m-012", name: "Tom Reynolds", title: "Land Specialist", brokerage: "Heartland Land Company", specialty: "Land & Rural", city: "Kansas City", state: "MO", tier: "basic", avatar: "/images/avatar-m9.jpg", email: "tom@heartlandland.co", phone: "(816) 555-0128", years: 21 },
+  { id: "m-001", name: "Sarah Mitchell", title: "Managing Broker", brokerage: "Summit Realty Group", specialty: "Residential", city: "Austin", state: "TX", tier: "professional", avatar: "/images/avatar-w3.jpg?v=2", email: "s.mitchell@summitrealty.com", phone: "(512) 555-0148", years: 14 },
+  { id: "m-002", name: "James Okafor", title: "Commercial Advisor", brokerage: "Metro Commercial Partners", specialty: "Commercial", city: "Chicago", state: "IL", tier: "premium", avatar: "/images/avatar-m4.jpg?v=2", email: "j.okafor@metropic.com", phone: "(312) 555-0192", years: 22 },
+  { id: "m-003", name: "Elena Vasquez", title: "Luxury Listing Specialist", brokerage: "Premier Estates International", specialty: "Luxury", city: "Beverly Hills", state: "CA", tier: "premium", avatar: "/images/avatar-w6.jpg?v=2", email: "elena@premiervasquez.com", phone: "(310) 555-0177", years: 17 },
+  { id: "m-004", name: "David Chen", title: "Senior Mortgage Planner", brokerage: "Golden Gate Lending", specialty: "Mortgage Lending", city: "San Francisco", state: "CA", tier: "professional", avatar: "/images/avatar-m2.jpg?v=2", email: "dchen@gglending.com", phone: "(415) 555-0136", years: 11 },
+  { id: "m-005", name: "Rachel Thompson", title: "Portfolio Manager", brokerage: "Keystone Property Group", specialty: "Property Management", city: "Denver", state: "CO", tier: "basic", avatar: "/images/avatar-w5.jpg?v=2", email: "rthompson@keystonepg.com", phone: "(303) 555-0159", years: 8 },
+  { id: "m-006", name: "Marcus Williams", title: "Investment Advisor", brokerage: "Williams Capital Realty", specialty: "Investment", city: "Atlanta", state: "GA", tier: "professional", avatar: "/images/avatar-m7.jpg?v=2", email: "marcus@williamscapital.net", phone: "(404) 555-0183", years: 15 },
+  { id: "m-007", name: "Jennifer Park", title: "Escrow Officer", brokerage: "Pacific Title Company", specialty: "Title & Escrow", city: "Seattle", state: "WA", tier: "professional", avatar: "/images/avatar-w8.jpg?v=2", email: "jpark@pacifictitle.com", phone: "(206) 555-0121", years: 12 },
+  { id: "m-008", name: "Robert Martinez", title: "Broker-Associate", brokerage: "Bayside Realty Advisors", specialty: "Residential", city: "Miami", state: "FL", tier: "premium", avatar: "/images/avatar-m1.jpg?v=2", email: "robert@baysideadvisors.com", phone: "(305) 555-0164", years: 25 },
+  { id: "m-009", name: "Amanda Foster", title: "Certified Appraiser", brokerage: "Foster Valuation Services", specialty: "Appraisal", city: "Nashville", state: "TN", tier: "basic", avatar: "/images/avatar-w2.jpg?v=2", email: "amanda@fostervaluation.com", phone: "(615) 555-0110", years: 9 },
+  { id: "m-010", name: "Kevin O'Brien", title: "New Home Sales Director", brokerage: "Lennar Homes Division", specialty: "New Construction", city: "Phoenix", state: "AZ", tier: "professional", avatar: "/images/avatar-m5.jpg?v=2", email: "k.obrien@lennardiv.com", phone: "(602) 555-0145", years: 13 },
+  { id: "m-011", name: "Nicole Grant", title: "Broker / Owner", brokerage: "Grant & Associates Realty", specialty: "Residential", city: "Charlotte", state: "NC", tier: "premium", avatar: "/images/avatar-w1.jpg?v=2", email: "nicole@grantrealty.com", phone: "(704) 555-0172", years: 19 },
+  { id: "m-012", name: "Tom Reynolds", title: "Land Specialist", brokerage: "Heartland Land Company", specialty: "Land & Rural", city: "Kansas City", state: "MO", tier: "basic", avatar: "/images/avatar-m9.jpg?v=2", email: "tom@heartlandland.co", phone: "(816) 555-0128", years: 21 },
 ];
 
 /* --------------------------------- events --------------------------------- */
@@ -468,6 +468,7 @@ export const NEWS: NewsItem[] = [
     category: "Member News",
     excerpt:
       "Thirteen members entering their first two years of practice received tuition support for designation coursework.",
+    image: "/images/scholarships.png",
   },
   {
     id: "n-5",
@@ -476,6 +477,7 @@ export const NEWS: NewsItem[] = [
     category: "Benefit",
     excerpt:
       "Professional- and Premium-tier members can now book 15-minute slots with association counsel on contracts and compliance questions.",
+    image: "/images/legal-hours.png",
   },
   {
     id: "n-6",
@@ -484,6 +486,7 @@ export const NEWS: NewsItem[] = [
     category: "Benefit",
     excerpt:
       "Members save up to 18% on title and settlement services nationwide — activate the discount from your member dashboard.",
+    image: "/images/title-partnership.png",
   },
 ];
 

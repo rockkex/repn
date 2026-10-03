@@ -105,7 +105,7 @@ export function HomeView() {
                 onClick={() => go("membership")}
                 size="lg"
                 variant="outline"
-                className="h-13 border-2 border-white/80 text-white hover:bg-white hover:text-navy-900 font-heading uppercase tracking-widest text-lg px-8"
+                className="h-13 bg-transparent shadow-none border-2 border-white/80 text-white hover:bg-white hover:text-navy-900 font-heading uppercase tracking-widest text-lg px-8"
               >
                 Explore Benefits
               </Button>
@@ -324,7 +324,7 @@ export function HomeView() {
           </blockquote>
           <div className="mt-6 flex items-center justify-center gap-3">
             <Image
-              src="/images/avatar-w1.jpg"
+              src="/images/avatar-w1.jpg?v=2"
               alt="Nicole Grant"
               width={52}
               height={52}
@@ -424,7 +424,7 @@ export function HomeView() {
                 onClick={() => go("login")}
                 size="lg"
                 variant="outline"
-                className="h-13 border-2 border-white/80 text-white hover:bg-white hover:text-navy-900 font-heading uppercase tracking-widest text-lg px-8"
+                className="h-13 bg-transparent shadow-none border-2 border-white/80 text-white hover:bg-white hover:text-navy-900 font-heading uppercase tracking-widest text-lg px-8"
               >
                 Member Login
               </Button>

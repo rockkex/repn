@@ -5,7 +5,7 @@
  * in any sandbox preview (single / route) and deploys to Vercel as-is.
  */
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 
 export const ROUTES = [
   "home",
@@ -27,20 +27,19 @@ function parseHash(): Route {
   return "home";
 }
 
-export function useHashRoute(): [Route, (r: Route) => void] {
-  // Lazy initializer reads the hash once; the effect only subscribes to changes.
-  const [route, setRoute] = useState<Route>(() =>
-    typeof window === "undefined" ? "home" : parseHash()
-  );
+function subscribe(onChange: () => void) {
+  window.addEventListener("hashchange", onChange);
+  return () => window.removeEventListener("hashchange", onChange);
+}
 
-  useEffect(() => {
-    const onChange = () => {
-      setRoute(parseHash());
-      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    };
-    window.addEventListener("hashchange", onChange);
-    return () => window.removeEventListener("hashchange", onChange);
-  }, []);
+/**
+ * SSR-safe hash routing via useSyncExternalStore:
+ * - SSR and the hydration pass both render the server snapshot ("home"),
+ *   so deep-linked routes can never mismatch the server HTML;
+ * - React then immediately re-renders with the real client hash.
+ */
+export function useHashRoute(): [Route, (r: Route) => void] {
+  const route = useSyncExternalStore(subscribe, parseHash, () => "home" as Route);
 
   const navigate = useCallback((r: Route) => {
     if (parseHash() === r) {

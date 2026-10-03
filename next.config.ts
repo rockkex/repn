@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   reactStrictMode: false,
+  images: {
+    // Allow cache-busting query strings (e.g. /images/avatar-m2.jpg?v=2)
+    // on local images; omitting `search` permits any query.
+    localPatterns: [
+      {
+        pathname: "/images/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

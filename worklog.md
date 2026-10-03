@@ -45,3 +45,23 @@ Work Log:
 Stage Summary:
 - All 3 dev-overlay issues resolved: (1) Grammarly <body> hydration mismatch suppressed, (2)(3) invalid nested-button HTML in JoinView eliminated.
 - Bonus hardening: clean tsc, correct comparison-table types, scoped tsconfig; production build green → Vercel deploy safe.
+
+---
+Task ID: 3
+Agent: Super Z (main agent)
+Task: Fix 4 user-reported issues: (1) invisible text on hero/CTA second buttons, (2) missing news featured images, (3) directory face cropping + duplicate faces, (4) add directory pagination.
+
+Work Log:
+- Hero/CTA buttons: shadcn outline variant ships solid bg-background (white); combined with text-white the label was invisible. Added bg-transparent shadow-none to both outline buttons in home-view (hero "Explore Benefits" + bottom CTA "Member Login").
+- News images: n-4/n-5/n-6 had no image. Generated 3 themed photos via z-ai CLI (scholarships.png, legal-hours.png, title-partnership.png, 1344x768) and wired into data.ts. NewsCard/lead/second layouts render them automatically; every article now has a featured image.
+- Directory faces: contact-sheet audit found the original "women" grid produced 8 near-identical women (5 members shared one face) and the "men" grid contained 3 female cells (David Chen + Marcus Williams had female photos). Generated a new 9-women diversity grid (explicit ethnicity prompt) + 2 targeted male headshots; cropped via PIL scripts and remapped w1-w9/m2/m7; every member now has a unique, gender-matched, ethnicity-matched face.
+- Crop fix: MemberCard photo window h-52 + object-top on square avatars showed only eyes/forehead. Changed to aspect-[4/3] + object-[center_30%] so full faces render.
+- Cache-busting: stale _next/image optimizer/browser cache kept serving old avatars even after file replacement. Added ?v=2 to all 12 avatar URLs in data.ts + 2 hardcoded refs, and configured images.localPatterns (pathname /images/**) in next.config.ts to allow query strings.
+- Pagination: directory-view now paginates at 6 per page with Previous / numbered / Next controls (navy active, gold text), range counter "Showing 1-6 of 12", page resets on search/filter change, scrollIntoView on page change.
+- Bonus fix: deep links (e.g. /#/directory direct load) caused a hydration mismatch on header aria-current because the hash router's lazy useState read the real hash during hydration while SSR rendered "home". Rewrote useHashRoute with useSyncExternalStore (server snapshot "home"); hydration re-renders cleanly with the client hash.
+- Verified: 0 console errors across all 9 routes, no dev-overlay issues on deep links, login -> dashboard flow OK, pagination page 2 renders 6 members, hero/CTA buttons readable, news grid fully illustrated; tsc + eslint clean; npm run build green.
+
+Stage Summary:
+- All 4 reported issues fixed plus 2 latent bugs (deep-link hydration mismatch, gender-mismatched avatars).
+- New assets: 3 news images + 9 diverse women avatars + 2 male headshots; scripts persisted in /scripts.
+- next.config.ts now allows query strings on local images for future cache-busting.

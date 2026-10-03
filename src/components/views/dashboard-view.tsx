@@ -127,7 +127,7 @@ export function DashboardView() {
 
   const plan = TIER_PLAN[session.tier];
   const member = MEMBERS.find((m) => m.id === session.memberId);
-  const avatar = member?.avatar ?? "/images/avatar-w3.jpg";
+  const avatar = member?.avatar ?? "/images/avatar-w3.jpg?v=2";
   const registeredEvents = UPCOMING_EVENTS.filter((e) =>
     session.registrations.includes(e.id)
   );
